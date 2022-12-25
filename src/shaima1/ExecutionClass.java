@@ -7,14 +7,14 @@ import java.util.Scanner;
 public class ExecutionClass {// TODO: Is this a looop or class? Also make capital
 
 	public static void main(String[] args) { // TODO: Break this func into smaller functions
-		School sch = new School();
+		School sch=new School("Mscat");
 		Department dep = new Department();
 		Teacher tec = new Teacher();
 		student stu = new student();
 		Course cou = new Course();
 		Mark mark = new Mark();
 		
-
+        
 		List<Department> departmentlist = new ArrayList<>();
 		boolean addDepartment = true;
 		
@@ -33,10 +33,10 @@ public class ExecutionClass {// TODO: Is this a looop or class? Also make capita
 
 		Scanner sc = new Scanner(System.in);
 		// int input = sc.nextInt();
-
-		System.out.println("Enter School Name:");
-		String sName = sc.next();
-		sch.setSchoolName(sName);
+		//System.out.println("Enter School Name:");
+		//String sName = sc.next();
+		//sch.setSchoolName(sName);
+		
 
 		/*
 		 * boolean open = true;
@@ -204,19 +204,19 @@ public class ExecutionClass {// TODO: Is this a looop or class? Also make capita
 					System.out.println("Deparment name :" + dep1.getDepartmentName());
 					System.out.println("Deparment id:" + dep1.getDepartmentId());
 
-					for (Teacher T : dep1.techearlist) {
+					for (Teacher T : dep1.getTechearlist()) {
 						System.out.println("Teacher Name:" + T.getTeacherName());
 						System.out.println("Teacher Id:" + T.getTeacherID());
 
-						for (student S :T.studentlist) {
+						for (student S :T.getStudentlist()) {
 							System.out.println("Student Name:" + S.getStudentName());
 							System.out.println("Student Id:" + S.getStudentId());
 
-							for (Course cou1 :S.courselist) {
+							for (Course cou1 :S.getCourselist()) {
 								System.out.println("Course Status:" + cou1.getName());
 								System.out.println("Course Status:" + cou1.getId());
 
-								for (Mark mark1 : cou1.Marklist) {
+								for (Mark mark1 : cou1.getMarklist()) {
 									System.out.println("Arabic Mark:" + mark1.getArabicMark());
 									System.out.println("Math Mark:" + mark1.getMathMark());
 

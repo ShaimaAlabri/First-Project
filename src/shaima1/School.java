@@ -5,7 +5,11 @@ import java.util.List;
 import java.util.Scanner;
 
 public class School {
-
+   
+     School(String name){
+    
+    	 System.out.println(name);
+     }
 	private String schoolName;
 	private String schoolLocation;
 	Department depat = new Department();
