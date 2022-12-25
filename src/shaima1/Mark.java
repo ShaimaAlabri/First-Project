@@ -3,6 +3,9 @@ package shaima1; //better naming
 import java.util.Scanner;
 
 public class Mark {
+	Mark(String studentName){
+		System.out.println(studentName);
+	}
 	private int mathMark; // TODO: Find out diff between int/Integer
 	private int arabicMark; // TODO: Please have consistent formatting
 

@@ -7,12 +7,12 @@ import java.util.Scanner;
 public class ExecutionClass {// TODO: Is this a looop or class? Also make capital
 
 	public static void main(String[] args) { // TODO: Break this func into smaller functions
-		School sch=new School("Mscat");
+		School sch=new School("Musct");
 		Department dep = new Department();
 		Teacher tec = new Teacher();
 		student stu = new student();
 		Course cou = new Course();
-		Mark mark = new Mark();
+		Mark mark = new Mark("Ali");
 		
         
 		List<Department> departmentlist = new ArrayList<>();
@@ -158,7 +158,7 @@ public class ExecutionClass {// TODO: Is this a looop or class? Also make capita
 			while (addMarks) {
 
 				
-				System.out.println("Student Name:" + stu.getStudentName());
+				//System.out.println("Student Name:" + stu.getStudentName());
 				System.out.println("Enter Arabic Mark:");
 				int AM = sc.nextInt();
 				mark.setArabicMark(AM);
