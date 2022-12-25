@@ -13,12 +13,6 @@ public class ExecutionClass {// TODO: Is this a looop or class? Also make capita
 		boolean addDepartment = true;
 		int sum = 0;
 
-		
-		Department dep = new Department();
-		Teacher tec = new Teacher();
-		student stu = new student();
-		Course cou = new Course();
-		Mark mark = new Mark();
 		// boolean condition = true;
 
 //		while (condition == true) {
@@ -46,7 +40,7 @@ public class ExecutionClass {// TODO: Is this a looop or class? Also make capita
 
 		while (addDepartment) {
 
-			
+			Department dep = new Department();
 
 			System.out.println("Enter Department Name:");
 			String depName = sc.next();
@@ -58,7 +52,7 @@ public class ExecutionClass {// TODO: Is this a looop or class? Also make capita
 			boolean addTeacher = true;
 			while (addTeacher) {
 
-				
+				Teacher tec = new Teacher();
 
 				System.out.println("Enter techear Name:");
 				String tecName = sc.next();
@@ -70,7 +64,7 @@ public class ExecutionClass {// TODO: Is this a looop or class? Also make capita
 
 				System.out.println("Do you want to add Teacher yes/no");
 				String answer1 = sc.next();
-				//dep.techearlist.add(tec);
+				dep.techearlist.add(tec);
 				if (answer1.equals("yes")) {
 					System.out.println("Next Teacher:");
 					addTeacher = true;
@@ -81,13 +75,13 @@ public class ExecutionClass {// TODO: Is this a looop or class? Also make capita
 					break;
 
 				}
-                dep.techearlist.add(tec);
+
 			} // while teacher
 			boolean addStudent = true;
 
 			while (addStudent) {
 
-				
+				student stu = new student();
 
 				System.out.println("Enter Student Name:");
 				String stuName = sc.next();
@@ -99,7 +93,7 @@ public class ExecutionClass {// TODO: Is this a looop or class? Also make capita
 
 				System.out.println("Do you want to add Student yes/no");
 				String answer12 = sc.next();
-				//dep.tec.studentlist.add(stu);
+				dep.tec.studentlist.add(stu);
 				if (answer12.equals("yes")) {
 					System.out.println("Next Student:");
 					addStudent = true;
@@ -110,12 +104,12 @@ public class ExecutionClass {// TODO: Is this a looop or class? Also make capita
 					break;
 
 				}
-             tec.studentlist.add(stu);
+
 			} // while stud
 			boolean addCourse = true;
 			while (addCourse) {
 
-				
+				Course cou = new Course();
 
 				System.out.println("Enter Course Name:");
 				String couName = sc.next();
@@ -127,7 +121,7 @@ public class ExecutionClass {// TODO: Is this a looop or class? Also make capita
 
 				System.out.println("Do you want to add Course yes/no");
 				String answer100 = sc.next();
-				
+				dep.tec.stu.courselist.add(cou);
 				if (answer100.equals("yes")) {
 					System.out.println("Next Course:");
 					addCourse = true;
@@ -138,12 +132,12 @@ public class ExecutionClass {// TODO: Is this a looop or class? Also make capita
 					break;
 
 				}
-             stu.courselist.add(cou);
+
 			} // course while
 			boolean addMarks = true;
 			while (addMarks) {
 
-				
+				Mark mark = new Mark();
 
 				System.out.println("Enter Arabic Mark:");
 				int AM = sc.nextInt();
@@ -158,7 +152,7 @@ public class ExecutionClass {// TODO: Is this a looop or class? Also make capita
 				mark.setSum(sum);
 				System.out.println("Do you want to add Mark yes/no");
 				String answer10 = sc.next();
-				//dep.tec.stu.cou.Marklist.add(mark);
+				dep.tec.stu.cou.Marklist.add(mark);
 				if (answer10.equals("yes")) {
 					System.out.println("Next student mark:");
 
@@ -169,7 +163,7 @@ public class ExecutionClass {// TODO: Is this a looop or class? Also make capita
 					break;
 
 				}
-           cou.Marklist.add(mark);
+
 			} // mark while
 
 			departmentlist.add(dep);
@@ -193,22 +187,20 @@ public class ExecutionClass {// TODO: Is this a looop or class? Also make capita
 						System.out.println("Teacher Name:" + T.getTeacherName());
 						System.out.println("Teacher Id:" + T.getTeacherID());
 
-						for (student S : T.studentlist) {
+						for (student S : dep1.tec.studentlist) {
 							System.out.println("Student Name:" + S.getStudentName());
 							System.out.println("Student Id:" + S.getStudentId());
 
-							for (Course cou1 : S.courselist) {
-								System.out.println("Course Status:" + cou1.getName());
-								System.out.println("Course Status:" + cou1.getId());
-								
+							for (Course cou : dep1.tec.stu.courselist) {
+								System.out.println("Course Status:" + cou.getName());
+								System.out.println("Course Status:" + cou.getId());
 
-								for (Mark mark1 : cou1.Marklist) {
+								for (Mark mark1 : dep1.tec.stu.cou.Marklist) {
 									System.out.println("Arabic Mark:" + mark1.getArabicMark());
 									System.out.println("Math Mark:" + mark1.getMathMark());
 
 									System.out.println("Total Marks:" + mark1.getSum());
 									System.out.println("+++++++++++++++++++++++++++");
-									
 								} // dep for
 							} // tech for
 						} // stud for
