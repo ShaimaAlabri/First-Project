@@ -147,7 +147,9 @@ public class ExecutionClass {// TODO: Is this a looop or class? Also make capita
 				
 
 			} // course while
+			
 			boolean addMarks = true;
+			
 			while (addMarks) {
 
 				Mark mark = new Mark();
@@ -202,19 +204,21 @@ public class ExecutionClass {// TODO: Is this a looop or class? Also make capita
 						System.out.println("Teacher Id:" + T.getTeacherID());
 
 						for (student S :T.studentlist) {
-							System.out.println("Student Name:" + S.getStudentName());
-							System.out.println("Student Id:" + S.getStudentId());
+							System.out.println("Student Name:" + dep1.tec.stu.getStudentName());
+							System.out.println("Student Id:" + dep1.tec.stu.getStudentId());
 
 							for (Course cou1 :S.courselist) {
-								System.out.println("Course Status:" + cou1.getName());
-								System.out.println("Course Status:" + cou1.getId());
+								System.out.println("Course Status:" + dep1.tec.stu.cou.getName());
+								System.out.println("Course Status:" + dep1.tec.stu.cou.getId());
 
 								for (Mark mark1 : cou1.Marklist) {
-									System.out.println("Arabic Mark:" + mark1.getArabicMark());
-									System.out.println("Math Mark:" + mark1.getMathMark());
+									System.out.println("Arabic Mark:" + dep1.tec.stu.cou.mark.getArabicMark());
+									System.out.println("Math Mark:" + dep1.tec.stu.cou.mark.getMathMark());
 
-									System.out.println("Total Marks:" + mark1.getSum());
+									System.out.println("Total Marks:" + dep1.tec.stu.cou.mark.getSum());
+									System.out.println("");
 									System.out.println("+++++++++++++++++++++++++++");
+									System.out.println("");
 								} // dep for
 							} // tech for
 						} // stud for
