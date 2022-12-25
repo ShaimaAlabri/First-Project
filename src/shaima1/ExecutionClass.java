@@ -8,9 +8,13 @@ public class ExecutionClass {// TODO: Is this a looop or class? Also make capita
 
 	public static void main(String[] args) { // TODO: Break this func into smaller functions
 		School sch = new School();
+		Department dep = new Department();
+		Teacher tec = new Teacher();
+		student stu = new student();
 
 		List<Department> departmentlist = new ArrayList<>();
 		boolean addDepartment = true;
+		
 		int sum = 0;
 
 		// boolean condition = true;
@@ -40,7 +44,7 @@ public class ExecutionClass {// TODO: Is this a looop or class? Also make capita
 
 		while (addDepartment) {
 
-			Department dep = new Department();
+			
 
 			System.out.println("Enter Department Name:");
 			String depName = sc.next();
@@ -52,7 +56,7 @@ public class ExecutionClass {// TODO: Is this a looop or class? Also make capita
 			boolean addTeacher = true;
 			while (addTeacher) {
 
-				Teacher tec = new Teacher();
+			
 
 				System.out.println("Enter techear Name:");
 				String tecName = sc.next();
@@ -65,6 +69,7 @@ public class ExecutionClass {// TODO: Is this a looop or class? Also make capita
 				System.out.println("Do you want to add Teacher yes/no");
 				String answer1 = sc.next();
 				dep.techearlist.add(tec);
+			
 				if (answer1.equals("yes")) {
 					System.out.println("Next Teacher:");
 					addTeacher = true;
@@ -75,13 +80,14 @@ public class ExecutionClass {// TODO: Is this a looop or class? Also make capita
 					break;
 
 				}
+				
 
 			} // while teacher
 			boolean addStudent = true;
 
 			while (addStudent) {
 
-				student stu = new student();
+				
 
 				System.out.println("Enter Student Name:");
 				String stuName = sc.next();
@@ -93,18 +99,18 @@ public class ExecutionClass {// TODO: Is this a looop or class? Also make capita
 
 				System.out.println("Do you want to add Student yes/no");
 				String answer12 = sc.next();
-				dep.tec.studentlist.add(stu);
+				
 				if (answer12.equals("yes")) {
 					System.out.println("Next Student:");
 					addStudent = true;
-
+			       tec.studentlist.add(stu);
 				} else if (answer12.equals("no")) {
 					addStudent = false;
 					System.out.println("course:");
 					break;
 
 				}
-
+				
 			} // while stud
 			boolean addCourse = true;
 			while (addCourse) {
@@ -121,7 +127,7 @@ public class ExecutionClass {// TODO: Is this a looop or class? Also make capita
 
 				System.out.println("Do you want to add Course yes/no");
 				String answer100 = sc.next();
-				dep.tec.stu.courselist.add(cou);
+				stu.courselist.add(cou);
 				if (answer100.equals("yes")) {
 					System.out.println("Next Course:");
 					addCourse = true;
@@ -132,6 +138,7 @@ public class ExecutionClass {// TODO: Is this a looop or class? Also make capita
 					break;
 
 				}
+				
 
 			} // course while
 			boolean addMarks = true;
@@ -163,7 +170,7 @@ public class ExecutionClass {// TODO: Is this a looop or class? Also make capita
 					break;
 
 				}
-
+				
 			} // mark while
 
 			departmentlist.add(dep);
@@ -187,15 +194,15 @@ public class ExecutionClass {// TODO: Is this a looop or class? Also make capita
 						System.out.println("Teacher Name:" + T.getTeacherName());
 						System.out.println("Teacher Id:" + T.getTeacherID());
 
-						for (student S : dep1.tec.studentlist) {
+						for (student S :T.studentlist) {
 							System.out.println("Student Name:" + S.getStudentName());
 							System.out.println("Student Id:" + S.getStudentId());
 
-							for (Course cou : dep1.tec.stu.courselist) {
+							for (Course cou : S.courselist) {
 								System.out.println("Course Status:" + cou.getName());
 								System.out.println("Course Status:" + cou.getId());
 
-								for (Mark mark1 : dep1.tec.stu.cou.Marklist) {
+								for (Mark mark1 : cou.Marklist) {
 									System.out.println("Arabic Mark:" + mark1.getArabicMark());
 									System.out.println("Math Mark:" + mark1.getMathMark());
 
