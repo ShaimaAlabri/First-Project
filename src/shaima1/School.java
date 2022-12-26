@@ -6,9 +6,10 @@ import java.util.Scanner;
 
 public class School {
    
-     School(String name){
+     School(String name, int addres){
     
     	 System.out.println(name);
+    	 System.out.println(addres);
      }
 	private String schoolName;
 	private String schoolLocation;

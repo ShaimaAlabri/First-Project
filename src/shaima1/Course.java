@@ -9,7 +9,7 @@ public class Course {
 	private int studentNumber;
 	private boolean open = true;
 	boolean close = false;
-	Mark mark = new Mark("Ali");
+	Mark mark = new Mark();
 	ArrayList<Mark> Marklist = new ArrayList<Mark>();
 
 	public ArrayList<Mark> getMarklist() {

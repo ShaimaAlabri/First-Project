@@ -7,18 +7,17 @@ import java.util.Scanner;
 public class ExecutionClass {// TODO: Is this a looop or class? Also make capital
 
 	public static void main(String[] args) { // TODO: Break this func into smaller functions
-		School sch=new School("Musct");
+		School sch = new School("Musct", 55);
 		Department dep = new Department();
 		Teacher tec = new Teacher();
 		student stu = new student();
 		Course cou = new Course();
-		Mark mark = new Mark("Ali");
-		
-        
+		Mark mark = new Mark();
+
 		List<Department> departmentlist = new ArrayList<>();
 		boolean addDepartment = true;
-		
-		int sum = 0;
+
+		float sum = 0;
 
 		// boolean condition = true;
 
@@ -33,10 +32,9 @@ public class ExecutionClass {// TODO: Is this a looop or class? Also make capita
 
 		Scanner sc = new Scanner(System.in);
 		// int input = sc.nextInt();
-		//System.out.println("Enter School Name:");
-		//String sName = sc.next();
-		//sch.setSchoolName(sName);
-		
+		// System.out.println("Enter School Name:");
+		// String sName = sc.next();
+		// sch.setSchoolName(sName);
 
 		/*
 		 * boolean open = true;
@@ -47,8 +45,6 @@ public class ExecutionClass {// TODO: Is this a looop or class? Also make capita
 
 		while (addDepartment) {
 
-			
-
 			System.out.println("Enter Department Name:");
 			String depName = sc.next();
 			dep.setDepartmentName(depName);
@@ -57,11 +53,8 @@ public class ExecutionClass {// TODO: Is this a looop or class? Also make capita
 			int deptId = sc.nextInt();
 			dep.setDepartmentId(deptId);
 			boolean addTeacher = true;
-			
+
 			while (addTeacher) {
-				
-				
-				
 
 				System.out.println("Enter techear Name:");
 				String tecName = sc.next();
@@ -73,9 +66,9 @@ public class ExecutionClass {// TODO: Is this a looop or class? Also make capita
 
 				System.out.println("Do you want to add Teacher yes/no");
 				String answer1 = sc.next();
-				
+
 				dep.techearlist.add(tec);
-				
+
 				if (answer1.equals("yes")) {
 					System.out.println("Next Teacher:");
 					addTeacher = true;
@@ -86,14 +79,11 @@ public class ExecutionClass {// TODO: Is this a looop or class? Also make capita
 					break;
 
 				}
-				
 
 			} // while teacher
 			boolean addStudent = true;
 
 			while (addStudent) {
-
-				
 
 				System.out.println("Enter Student Name:");
 				String stuName = sc.next();
@@ -104,27 +94,25 @@ public class ExecutionClass {// TODO: Is this a looop or class? Also make capita
 				stu.setStudentId(stuId);
 
 				tec.studentlist.add(stu);
-				
+
 				System.out.println("Do you want to add Student yes/no");
 				String answer12 = sc.next();
-				
+
 				if (answer12.equals("yes")) {
 					System.out.println("Next Student:");
 					addStudent = true;
 					dep.tec.studentlist.add(stu);
-					 
+
 				} else if (answer12.equals("no")) {
 					addStudent = false;
 					System.out.println("course:");
 					break;
 
 				}
-				
+
 			} // while stud
 			boolean addCourse = true;
 			while (addCourse) {
-
-				
 
 				System.out.println("Enter Course Name:");
 				String couName = sc.next();
@@ -135,10 +123,10 @@ public class ExecutionClass {// TODO: Is this a looop or class? Also make capita
 				cou.setId(couId);
 
 				stu.courselist.add(cou);
-				
+
 				System.out.println("Do you want to add Course yes/no");
 				String answer100 = sc.next();
-				
+
 				if (answer100.equals("yes")) {
 					System.out.println("Next Course:");
 					addCourse = true;
@@ -149,28 +137,26 @@ public class ExecutionClass {// TODO: Is this a looop or class? Also make capita
 					break;
 
 				}
-				
 
 			} // course while
-			
+
 			boolean addMarks = true;
-			
+
 			while (addMarks) {
 
-				
-				//System.out.println("Student Name:" + stu.getStudentName());
+				// System.out.println("Student Name:" + stu.getStudentName());
 				System.out.println("Enter Arabic Mark:");
-				int AM = sc.nextInt();
+				float AM =  (float) sc.nextDouble();
 				mark.setArabicMark(AM);
 
 				System.out.println("Enter Math Mark:");
-				int Mm = sc.nextInt();
+				float Mm = (float) sc.nextDouble();
 				mark.setMathMark(Mm);
-				sum=mark.getArabicMark() +mark.getMathMark();
+				sum = (float) mark.getArabicMark() + (float) mark.getMathMark();
 				mark.setSum(sum);
 
 				cou.Marklist.add(mark);
-				
+
 				System.out.println("Do you want to add Mark yes/no");
 				String answer10 = sc.next();
 				if (answer10.equals("yes")) {
@@ -181,10 +167,9 @@ public class ExecutionClass {// TODO: Is this a looop or class? Also make capita
 					addMarks = false;
 					System.out.println("end");
 					break;
-					
 
 				}
-				
+
 			} // mark while
 
 			departmentlist.add(dep);
@@ -208,11 +193,11 @@ public class ExecutionClass {// TODO: Is this a looop or class? Also make capita
 						System.out.println("Teacher Name:" + T.getTeacherName());
 						System.out.println("Teacher Id:" + T.getTeacherID());
 
-						for (student S :T.getStudentlist()) {
+						for (student S : T.getStudentlist()) {
 							System.out.println("Student Name:" + S.getStudentName());
 							System.out.println("Student Id:" + S.getStudentId());
 
-							for (Course cou1 :S.getCourselist()) {
+							for (Course cou1 : S.getCourselist()) {
 								System.out.println("Course Status:" + cou1.getName());
 								System.out.println("Course Status:" + cou1.getId());
 
