@@ -3,6 +3,7 @@ package shaima1;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.Stack;
 
 public class ExecutionClass {// TODO: Is this a looop or class? Also make capital
 
@@ -13,7 +14,7 @@ public class ExecutionClass {// TODO: Is this a looop or class? Also make capita
 		student stu = new student();
 		Course cou = new Course();
 		Mark mark = new Mark();
-
+        Stack stk=new Stack();
 		List<Department> departmentlist = new ArrayList<>();
 		boolean addDepartment = true;
 
@@ -32,9 +33,9 @@ public class ExecutionClass {// TODO: Is this a looop or class? Also make capita
 
 		Scanner sc = new Scanner(System.in);
 		// int input = sc.nextInt();
-		// System.out.println("Enter School Name:");
-		// String sName = sc.next();
-		// sch.setSchoolName(sName);
+		 //System.out.println("Enter School Name:");
+	     //String sName = sc.next();
+		 //sch.setSchoolName(sName);
 
 		/*
 		 * boolean open = true;
@@ -117,6 +118,9 @@ public class ExecutionClass {// TODO: Is this a looop or class? Also make capita
 				System.out.println("Enter Course Name:");
 				String couName = sc.next();
 				cou.setName(couName);
+				stk.push(couName);
+				
+				
 
 				System.out.println("Enter Courseid:");
 				int couId = sc.nextInt();
@@ -126,6 +130,7 @@ public class ExecutionClass {// TODO: Is this a looop or class? Also make capita
 
 				System.out.println("Do you want to add Course yes/no");
 				String answer100 = sc.next();
+		
 
 				if (answer100.equals("yes")) {
 					System.out.println("Next Course:");
@@ -175,15 +180,15 @@ public class ExecutionClass {// TODO: Is this a looop or class? Also make capita
 			departmentlist.add(dep);
 
 			System.out.println("Do you want to add a Department yes/no?");
-			String answer = sc.next();
-			if (answer.equals("yes")) {
-				addDepartment = true;
-				System.out.println("next department");
-			} else if (answer.equals("no")) {
-				addDepartment = false;
+			String key = sc.next();
+            if(key.equals("yes")) {
+            	addDepartment=true;
+            }else if(key.equals("no")) {
+            	
+            	
 
 				System.out.println("Thanks");
-				System.out.println("School Name:" + sch.getSchoolName());
+				//System.out.println("School Name:" + sch.getSchoolName());
 
 				for (Department dep1 : departmentlist) {
 					System.out.println("Deparment name :" + dep1.getDepartmentName());
@@ -217,11 +222,32 @@ public class ExecutionClass {// TODO: Is this a looop or class? Also make capita
 				} // mark for
 
 			} // dep if
-
-		} // dep while
-
+System.out.println("Do you want to add Course History?");
+		String answer100 = sc.next();
+		if (answer100.equals("yes")) {
+			for ( int i=0;i<=stk.size();i++) {
+				
+				System.out.println(stk.pop());
+	addDepartment=false;
+			} 
+			} else{
+				System.out.println("Thanks");
+			}
+	
+		} 
+			
 	}
-}
+	
+		
+		
+	} // dep while
+	
+		
+
+	
+
+
+
 
 //System.out.println(sch.openSchool());
 //System.out.println(dep.addDep());
