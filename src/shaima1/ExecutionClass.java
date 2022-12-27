@@ -1,8 +1,11 @@
 package shaima1;
 
 import java.io.File;
-
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.io.FileWriter;
@@ -15,14 +18,14 @@ import java.util.Vector;
 
 public class ExecutionClass {// TODO: Is this a looop or class? Also make capital
 
-	public static void main(String[] args) throws IOException { // TODO: Break this func into smaller functions
+	public static void main(String[] args) throws IOException, ClassNotFoundException { // TODO: Break this func into smaller functions
 		School sch = new School("Musct", 55);
 		Department dep = new Department();
 		Teacher tec = new Teacher();
 		student stu = new student();
 		Course cou = new Course();
 		Mark mark = new Mark();
-        Stack stk=new Stack();
+		Stack stk = new Stack();
 		List<Department> departmentlist = new ArrayList<>();
 		boolean addDepartment = true;
 
@@ -41,9 +44,9 @@ public class ExecutionClass {// TODO: Is this a looop or class? Also make capita
 
 		Scanner sc = new Scanner(System.in);
 		// int input = sc.nextInt();
-		 //System.out.println("Enter School Name:");
-	     //String sName = sc.next();
-		 //sch.setSchoolName(sName);
+		// System.out.println("Enter School Name:");
+		// String sName = sc.next();
+		// sch.setSchoolName(sName);
 
 		/*
 		 * boolean open = true;
@@ -51,24 +54,61 @@ public class ExecutionClass {// TODO: Is this a looop or class? Also make capita
 		 * if (open) { System.out.println("School is open"); } else if (open = false) {
 		 * System.out.println("School is close"); }
 		 */
-		
+
 		try {
-			File myObj=new File("C:\\Users\\Lenovo\\Desktop\\shaima1\\Shaima_test.txt");
-			if(myObj.createNewFile()) {
-			System.out.println("file craeted:"+myObj.getName());
-			}else {
+			File myObj = new File("C:\\Users\\Lenovo\\Desktop\\shaima1\\Shaima_test.txt");
+			if (myObj.createNewFile()) {
+				System.out.println("file craeted:" + myObj.getName());
+			} else {
 				System.out.println("file already exit.");
 			}
-		}catch(IOException e){
-			
-			System.out.println("an erorr occurred.");
-			
-			e.printStackTrace();
-			  
-		}
-		FileWriter writer = new FileWriter("C:\\Users\\Lenovo\\Desktop\\shaima1\\Shaima_test.txt");
-	
+		} catch (IOException e) {
 
+			System.out.println("an erorr occurred.");
+
+			e.printStackTrace();
+		}
+			
+	
+//		FileOutputStream f = FileOutputStream(new File("myObject.txt"));
+//			ObjectOutputStream o= ObjectOutputStream (f);
+//			o.writeObject(dep);
+//			o.writeObject(mark);
+//			o.close();
+//			f.close();
+//			FileInputStream fi =FileInputStream(new File("myObject.txt"));
+//			ObjectInputStream oi= ObjectInputStream (fi);
+//			Department dep=(Department)oi.readObject();
+//			Mark mark= (Mark)oi.readObject();
+//			System.out.println(dep.toString());
+//			System.out.println(mark.toString());
+//			
+//			oi.close();
+//			fi.close();
+				
+						
+		FileOutputStream f = new FileOutputStream(new File("C:\\Users\\Lenovo\\Desktop\\shaima1\\Shaima_test.txt"));
+		ObjectOutputStream o = new ObjectOutputStream(f);
+
+		o.writeObject(mark);
+		
+
+		o.close();
+		f.close();
+		FileInputStream fi = new FileInputStream(new File("C:\\Users\\Lenovo\\Desktop\\shaima1\\Shaima_test.txt"));
+		ObjectInputStream oi = new ObjectInputStream(fi);
+
+		// Read objects
+		Mark pr1= (Mark) oi.readObject();
+	pr1.setArabicMark(90);
+
+		System.out.println(pr1.getArabicMark());
+	
+		oi.close();
+		fi.close();
+	
+	
+		FileWriter writer = new FileWriter("C:\\Users\\Lenovo\\Desktop\\shaima1\\Shaima_test.txt");
 
 		while (addDepartment) {
 
@@ -145,8 +185,6 @@ public class ExecutionClass {// TODO: Is this a looop or class? Also make capita
 				String couName = sc.next();
 				cou.setName(couName);
 				stk.push(couName);
-				
-				
 
 				System.out.println("Enter Courseid:");
 				int couId = sc.nextInt();
@@ -156,7 +194,6 @@ public class ExecutionClass {// TODO: Is this a looop or class? Also make capita
 
 				System.out.println("Do you want to add Course yes/no");
 				String answer100 = sc.next();
-		
 
 				if (answer100.equals("yes")) {
 					System.out.println("Next Course:");
@@ -177,7 +214,7 @@ public class ExecutionClass {// TODO: Is this a looop or class? Also make capita
 
 				// System.out.println("Student Name:" + stu.getStudentName());
 				System.out.println("Enter Arabic Mark:");
-				float AM =  (float) sc.nextDouble();
+				float AM = (float) sc.nextDouble();
 				mark.setArabicMark(AM);
 
 				System.out.println("Enter Math Mark:");
@@ -202,72 +239,58 @@ public class ExecutionClass {// TODO: Is this a looop or class? Also make capita
 				}
 
 			} // mark while
-			
-	
-				
 
-		
-			
-		
-	
-
-	
 			departmentlist.add(dep);
 
 			System.out.println("Do you want to add a Department yes/no?");
 			String key = sc.next();
-            if(key.equals("yes")) {
-            	addDepartment=true;
-            }else if(key.equals("no")) {
-            	
-            	
+			if (key.equals("yes")) {
+				addDepartment = true;
+			} else if (key.equals("no")) {
 
-				//System.out.println("Thanks");
-				//System.out.println("School Name:" + sch.getSchoolName());
-		
-				
-				
-				
-				 for (Department dep1 : departmentlist) {
+				// System.out.println("Thanks");
+				// System.out.println("School Name:" + sch.getSchoolName());
+
+				for (Department dep1 : departmentlist) {
 					System.out.println("Deparment name :" + dep1.getDepartmentName());
-					writer.write("Deparment name :" + dep1.getDepartmentName() +"\n");
-					
+					writer.write("Deparment name :" + dep1.getDepartmentName() + "\n");
+
 					System.out.println("Deparment id:" + dep1.getDepartmentId());
-					writer.write("Deparment id:" + dep1.getDepartmentId()+"\n");
+					writer.write("Deparment id:" + dep1.getDepartmentId() + "\n");
 
 					for (Teacher T : dep1.getTechearlist()) {
 						System.out.println("Teacher Name:" + T.getTeacherName());
-						writer.write("Teacher Name:" + T.getTeacherName()+"\n");
+						writer.write("Teacher Name:" + T.getTeacherName() + "\n");
 						System.out.println("Teacher Id:" + T.getTeacherID());
-						writer.write("Teacher Id:" + T.getTeacherID()+"\n");
+						writer.write("Teacher Id:" + T.getTeacherID() + "\n");
 
 						for (student S : T.getStudentlist()) {
 							System.out.println("Student Name:" + S.getStudentName());
-							writer.write("Student Name:" + S.getStudentName()+"\n");
+							writer.write("Student Name:" + S.getStudentName() + "\n");
 							System.out.println("Student Id:" + S.getStudentId());
-							writer.write("Student Id:" + S.getStudentId()+"\n");
+							writer.write("Student Id:" + S.getStudentId() + "\n");
 
 							for (Course cou1 : S.getCourselist()) {
 								System.out.println("Course Status:" + cou1.getName());
-								writer.write("Course Status:" + cou1.getName()+"\n");
+								writer.write("Course Status:" + cou1.getName() + "\n");
 								System.out.println("Course Status:" + cou1.getId());
-								writer.write("Course Status:" + cou1.getId()+"\n");
+								writer.write("Course Status:" + cou1.getId() + "\n");
 
 								for (Mark mark1 : cou1.getMarklist()) {
 									System.out.println("Arabic Mark:" + mark1.getArabicMark());
-									writer.write("Arabic Mark:" + mark1.getArabicMark()+"\n");
+									writer.write("Arabic Mark:" + mark1.getArabicMark() + "\n");
 									System.out.println("Math Mark:" + mark1.getMathMark());
-									writer.write("Math Mark:" + mark1.getMathMark()+"\n");
+									writer.write("Math Mark:" + mark1.getMathMark() + "\n");
 
 									System.out.println("Total Marks:" + mark1.getSum());
-									writer.write("Total Marks:" + mark1.getSum()+"\n");
+									writer.write("Total Marks:" + mark1.getSum() + "\n");
 									System.out.println("");
-									writer.write(""+"\n");
+									writer.write("" + "\n");
 									System.out.println("+++++++++++++++++++++++++++");
-									writer.write("+++++++++++++++++++++++++++"+"\n");
+									writer.write("+++++++++++++++++++++++++++" + "\n");
 									System.out.println("");
-									writer.write(""+"\n");
-								
+									writer.write("" + "\n");
+
 								} // dep for
 							} // tech for
 						} // stud for
@@ -276,35 +299,28 @@ public class ExecutionClass {// TODO: Is this a looop or class? Also make capita
 				} // mark for
 
 			} // dep if
-            System.out.println("Do you want to add Course History?");
+			System.out.println("Do you want to add Course History?");
 			String answer100 = sc.next();
 			if (answer100.equals("yes")) {
-				for ( int i=0;i<=stk.size();i++) {
-					
+				for (int i = 0; i <= stk.size(); i++) {
+
 					System.out.println(stk.pop());
-		addDepartment=false;
-				} 
-				} else{
-					System.out.println("Thanks");
+					addDepartment = false;
+				}
+			} else {
+				System.out.println("Thanks");
 
-			}	
-		
-	
-		} 
+			}
 
-		
+		}
+
 		writer.close();
-	
+
 	}
-		
-	} // dep while
-		
-
-	
-	
 
 
 
+} // dep while
 
 //System.out.println(sch.openSchool());
 //System.out.println(dep.addDep());

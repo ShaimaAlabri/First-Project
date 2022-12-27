@@ -1,8 +1,9 @@
 package shaima1; //better naming
 
+import java.io.Serializable;
 import java.util.Scanner;
 
-public class Mark {
+public class Mark implements Serializable{
 
 	private double mathMark; // TODO: Find out diff between int/Integer
 	private double arabicMark; // TODO: Please have consistent formatting
