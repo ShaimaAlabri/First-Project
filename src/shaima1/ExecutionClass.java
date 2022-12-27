@@ -1,10 +1,11 @@
 package shaima1;
 
 import java.io.File;
-import java.io.FileWriter;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.io.FileWriter;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +15,7 @@ import java.util.Vector;
 
 public class ExecutionClass {// TODO: Is this a looop or class? Also make capital
 
-	public static void main(String[] args) { // TODO: Break this func into smaller functions
+	public static void main(String[] args) throws IOException { // TODO: Break this func into smaller functions
 		School sch = new School("Musct", 55);
 		Department dep = new Department();
 		Teacher tec = new Teacher();
@@ -50,8 +51,9 @@ public class ExecutionClass {// TODO: Is this a looop or class? Also make capita
 		 * if (open) { System.out.println("School is open"); } else if (open = false) {
 		 * System.out.println("School is close"); }
 		 */
+		
 		try {
-			File myObj=new File("C:\\Users\\Lenovo\\Desktop\\shaima1\\Shima_test.txt");
+			File myObj=new File("C:\\Users\\Lenovo\\Desktop\\shaima1\\Shaima_test.txt");
 			if(myObj.createNewFile()) {
 			System.out.println("file craeted:"+myObj.getName());
 			}else {
@@ -64,19 +66,9 @@ public class ExecutionClass {// TODO: Is this a looop or class? Also make capita
 			e.printStackTrace();
 			  
 		}
+		FileWriter writer = new FileWriter("C:\\Users\\Lenovo\\Desktop\\shaima1\\Shaima_test.txt");
 	
-	try {
-		FileWriter myWriter=new FileWriter("C:\\\\Users\\\\Lenovo\\\\Desktop\\\\shaima1\\test.txt");
-		 myWriter.write("Files in Java might be trukey, but is fun enugh!");
-		 myWriter.close();
-		 System.out.println("Successfuly wrot to the file");
-	}catch(IOException e){
-		
-		System.out.println("an erorr occurred.");
-		
-		e.printStackTrace();
-	
-	}
+
 
 		while (addDepartment) {
 
@@ -232,32 +224,50 @@ public class ExecutionClass {// TODO: Is this a looop or class? Also make capita
 
 				System.out.println("Thanks");
 				//System.out.println("School Name:" + sch.getSchoolName());
-
+		
+				
+				
+				
 				 for (Department dep1 : departmentlist) {
-					 System.out.println("Deparment name :" + dep1.getDepartmentName());
+					System.out.println("Deparment name :" + dep1.getDepartmentName());
+					writer.write("Deparment name :" + dep1.getDepartmentName() +"\n");
+					
 					System.out.println("Deparment id:" + dep1.getDepartmentId());
+					writer.write("Deparment id:" + dep1.getDepartmentId()+"\n");
 
 					for (Teacher T : dep1.getTechearlist()) {
 						System.out.println("Teacher Name:" + T.getTeacherName());
+						writer.write("Teacher Name:" + T.getTeacherName()+"\n");
 						System.out.println("Teacher Id:" + T.getTeacherID());
+						writer.write("Teacher Id:" + T.getTeacherID()+"\n");
 
 						for (student S : T.getStudentlist()) {
 							System.out.println("Student Name:" + S.getStudentName());
+							writer.write("Student Name:" + S.getStudentName()+"\n");
 							System.out.println("Student Id:" + S.getStudentId());
+							writer.write("Student Id:" + S.getStudentId()+"\n");
 
 							for (Course cou1 : S.getCourselist()) {
 								System.out.println("Course Status:" + cou1.getName());
+								writer.write("Course Status:" + cou1.getName()+"\n");
 								System.out.println("Course Status:" + cou1.getId());
+								writer.write("Course Status:" + cou1.getId()+"\n");
 
 								for (Mark mark1 : cou1.getMarklist()) {
 									System.out.println("Arabic Mark:" + mark1.getArabicMark());
+									writer.write("Arabic Mark:" + mark1.getArabicMark()+"\n");
 									System.out.println("Math Mark:" + mark1.getMathMark());
+									writer.write("Math Mark:" + mark1.getMathMark()+"\n");
 
 									System.out.println("Total Marks:" + mark1.getSum());
+									writer.write("Total Marks:" + mark1.getSum()+"\n");
 									System.out.println("");
+									writer.write(""+"\n");
 									System.out.println("+++++++++++++++++++++++++++");
+									writer.write("+++++++++++++++++++++++++++"+"\n");
 									System.out.println("");
-									
+									writer.write(""+"\n");
+								
 								} // dep for
 							} // tech for
 						} // stud for
@@ -280,7 +290,8 @@ System.out.println("Do you want to add Course History?");
 	
 		} 
 			
-	
+		
+		writer.close();
 	
 	}
 		
