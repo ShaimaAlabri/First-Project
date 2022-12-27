@@ -1,9 +1,16 @@
 package shaima1;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.Stack;
+import java.util.Vector;
 
 public class ExecutionClass {// TODO: Is this a looop or class? Also make capital
 
@@ -43,6 +50,33 @@ public class ExecutionClass {// TODO: Is this a looop or class? Also make capita
 		 * if (open) { System.out.println("School is open"); } else if (open = false) {
 		 * System.out.println("School is close"); }
 		 */
+		try {
+			File myObj=new File("C:\\Users\\Lenovo\\Desktop\\shaima1\\Shima_test.txt");
+			if(myObj.createNewFile()) {
+			System.out.println("file craeted:"+myObj.getName());
+			}else {
+				System.out.println("file already exit.");
+			}
+		}catch(IOException e){
+			
+			System.out.println("an erorr occurred.");
+			
+			e.printStackTrace();
+			  
+		}
+	
+	try {
+		FileWriter myWriter=new FileWriter("C:\\\\Users\\\\Lenovo\\\\Desktop\\\\shaima1\\test.txt");
+		 myWriter.write("Files in Java might be trukey, but is fun enugh!");
+		 myWriter.close();
+		 System.out.println("Successfuly wrot to the file");
+	}catch(IOException e){
+		
+		System.out.println("an erorr occurred.");
+		
+		e.printStackTrace();
+	
+	}
 
 		while (addDepartment) {
 
@@ -176,7 +210,16 @@ public class ExecutionClass {// TODO: Is this a looop or class? Also make capita
 				}
 
 			} // mark while
+			
+	
+				
 
+		
+			
+		
+	
+
+	
 			departmentlist.add(dep);
 
 			System.out.println("Do you want to add a Department yes/no?");
@@ -190,8 +233,8 @@ public class ExecutionClass {// TODO: Is this a looop or class? Also make capita
 				System.out.println("Thanks");
 				//System.out.println("School Name:" + sch.getSchoolName());
 
-				for (Department dep1 : departmentlist) {
-					System.out.println("Deparment name :" + dep1.getDepartmentName());
+				 for (Department dep1 : departmentlist) {
+					 System.out.println("Deparment name :" + dep1.getDepartmentName());
 					System.out.println("Deparment id:" + dep1.getDepartmentId());
 
 					for (Teacher T : dep1.getTechearlist()) {
@@ -214,6 +257,7 @@ public class ExecutionClass {// TODO: Is this a looop or class? Also make capita
 									System.out.println("");
 									System.out.println("+++++++++++++++++++++++++++");
 									System.out.println("");
+									
 								} // dep for
 							} // tech for
 						} // stud for
@@ -236,14 +280,14 @@ System.out.println("Do you want to add Course History?");
 	
 		} 
 			
-	}
 	
-		
+	
+	}
 		
 	} // dep while
-	
 		
 
+	
 	
 
 
