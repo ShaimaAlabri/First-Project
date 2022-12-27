@@ -222,7 +222,7 @@ public class ExecutionClass {// TODO: Is this a looop or class? Also make capita
             	
             	
 
-				System.out.println("Thanks");
+				//System.out.println("Thanks");
 				//System.out.println("School Name:" + sch.getSchoolName());
 		
 				
@@ -276,20 +276,22 @@ public class ExecutionClass {// TODO: Is this a looop or class? Also make capita
 				} // mark for
 
 			} // dep if
-System.out.println("Do you want to add Course History?");
-		String answer100 = sc.next();
-		if (answer100.equals("yes")) {
-			for ( int i=0;i<=stk.size();i++) {
-				
-				System.out.println(stk.pop());
-	addDepartment=false;
-			} 
-			} else{
-				System.out.println("Thanks");
-			}
+            System.out.println("Do you want to add Course History?");
+			String answer100 = sc.next();
+			if (answer100.equals("yes")) {
+				for ( int i=0;i<=stk.size();i++) {
+					
+					System.out.println(stk.pop());
+		addDepartment=false;
+				} 
+				} else{
+					System.out.println("Thanks");
+
+			}	
+		
 	
 		} 
-			
+
 		
 		writer.close();
 	
