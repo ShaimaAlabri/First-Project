@@ -18,7 +18,8 @@ import java.util.Vector;
 
 public class ExecutionClass {// TODO: Is this a looop or class? Also make capital
 
-	public static void main(String[] args) throws IOException, ClassNotFoundException { // TODO: Break this func into smaller functions
+	public static void main(String[] args) throws IOException, ClassNotFoundException { // TODO: Break this func into
+																						// smaller functions
 		School sch = new School("Musct", 55);
 		Department dep = new Department();
 		Teacher tec = new Teacher();
@@ -68,8 +69,7 @@ public class ExecutionClass {// TODO: Is this a looop or class? Also make capita
 
 			e.printStackTrace();
 		}
-			
-	
+
 //		FileOutputStream f = FileOutputStream(new File("myObject.txt"));
 //			ObjectOutputStream o= ObjectOutputStream (f);
 //			o.writeObject(dep);
@@ -85,13 +85,11 @@ public class ExecutionClass {// TODO: Is this a looop or class? Also make capita
 //			
 //			oi.close();
 //			fi.close();
-				
-						
+
 		FileOutputStream f = new FileOutputStream(new File("C:\\Users\\Lenovo\\Desktop\\shaima1\\Shaima_test.txt"));
 		ObjectOutputStream o = new ObjectOutputStream(f);
 
 		o.writeObject(mark);
-		
 
 		o.close();
 		f.close();
@@ -99,15 +97,14 @@ public class ExecutionClass {// TODO: Is this a looop or class? Also make capita
 		ObjectInputStream oi = new ObjectInputStream(fi);
 
 		// Read objects
-		Mark pr1= (Mark) oi.readObject();
-	pr1.setArabicMark(90);
+		Mark pr1 = (Mark) oi.readObject();
+		pr1.setArabicMark(90);
 
 		System.out.println(pr1.getArabicMark());
-	
+
 		oi.close();
 		fi.close();
-	
-	
+
 		FileWriter writer = new FileWriter("C:\\Users\\Lenovo\\Desktop\\shaima1\\Shaima_test.txt");
 
 		while (addDepartment) {
@@ -281,6 +278,7 @@ public class ExecutionClass {// TODO: Is this a looop or class? Also make capita
 									writer.write("Arabic Mark:" + mark1.getArabicMark() + "\n");
 									System.out.println("Math Mark:" + mark1.getMathMark());
 									writer.write("Math Mark:" + mark1.getMathMark() + "\n");
+									System.out.println("mark obj file"+pr1.getArabicMark());
 
 									System.out.println("Total Marks:" + mark1.getSum());
 									writer.write("Total Marks:" + mark1.getSum() + "\n");
@@ -317,8 +315,6 @@ public class ExecutionClass {// TODO: Is this a looop or class? Also make capita
 		writer.close();
 
 	}
-
-
 
 } // dep while
 
