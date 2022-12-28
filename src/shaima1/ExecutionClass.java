@@ -2,6 +2,7 @@ package shaima1;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -104,7 +105,16 @@ public class ExecutionClass {// TODO: Is this a looop or class? Also make capita
 
 		oi.close();
 		fi.close();
+		
+		 File myObj = new File("C:\\Users\\Lenovo\\Desktop\\shaima1\\Shaima_test.txt");
+	      Scanner myReader = new Scanner(myObj);
+	      while (myReader.hasNextLine()) {
+	        String data = myReader.nextLine();
+	        System.out.println(data);
+	      }
 
+
+	
 		FileWriter writer = new FileWriter("C:\\Users\\Lenovo\\Desktop\\shaima1\\Shaima_test.txt");
 
 		while (addDepartment) {
@@ -278,7 +288,7 @@ public class ExecutionClass {// TODO: Is this a looop or class? Also make capita
 									writer.write("Arabic Mark:" + mark1.getArabicMark() + "\n");
 									System.out.println("Math Mark:" + mark1.getMathMark());
 									writer.write("Math Mark:" + mark1.getMathMark() + "\n");
-									System.out.println("mark obj file"+pr1.getArabicMark());
+									System.out.println("mark obj file" + pr1.getArabicMark());
 
 									System.out.println("Total Marks:" + mark1.getSum());
 									writer.write("Total Marks:" + mark1.getSum() + "\n");
@@ -312,8 +322,9 @@ public class ExecutionClass {// TODO: Is this a looop or class? Also make capita
 
 		}
 
+		
 		writer.close();
-
+		 myReader.close();
 	}
 
 } // dep while
