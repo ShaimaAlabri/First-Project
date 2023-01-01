@@ -1,0 +1,14 @@
+Deparment name :4
+Deparment id:4
+Teacher Name:4
+Teacher Id:4
+Student Name:4
+Student Id:4
+Course Status:5
+Course Status:43
+Arabic Mark:54.0
+Math Mark:54.0
+Total Marks:108.0
+
++++++++++++++++++++++++++++
+

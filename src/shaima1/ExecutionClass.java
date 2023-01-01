@@ -22,7 +22,9 @@ import java.util.Vector;
 public class ExecutionClass {// TODO: Is this a looop or class? Also make capital
 
 	public static void main(String[] args) throws IOException, ClassNotFoundException { // TODO: Break this func into
-																						// smaller functions
+
+		 
+					// smaller functions
 		School sch = new School("Musct", 55);
 		Department dep = new Department();
 		Teacher tec = new Teacher();
@@ -89,34 +91,6 @@ public class ExecutionClass {// TODO: Is this a looop or class? Also make capita
 //			oi.close();
 //			fi.close();
 //		
-		 //File f1=new File("C:\\Users\\Lenovo\\Desktop\\shaima1\\Shaima_test.txt"); //Creation of File Descriptor for input file
-	      String[] words=null;  //Intialize the word Array
-	      //FileReader fr = new FileReader(f1);  //Creation of File Reader object
-	      BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\Lenovo\\Desktop\\shaima1\\Shaima_test.txt")); //Creation of BufferedReader object
-	      String s;  
-	      System.out.println("enter the world you want to search?");
-	      String input=sc.nextLine( );// Input word to be searched
-	      int count=0;   //Intialize the word to zero
-	      while((s=br.readLine())!=null)   //Reading Content from the file
-	      {
-	         words=s.split(" ");  //Split the word using space
-	          for (String word : words) 
-	          {
-	                 if (word.equals(input))   //Search for the given word
-	                 {
-	                   count++;    //If Present increase the count by one
-	                 }
-	          }
-	      }
-	      if(count!=0)  //Check for count not equal to zero
-	      {
-	         System.out.println("The given word is present for "+count+ " Times in the file");
-	      }
-	      else
-	      {
-	         System.out.println("The given word is not present in the file");
-	      }
-
 	
 		
 		FileOutputStream f = new FileOutputStream(new File("C:\\Users\\Lenovo\\Desktop\\shaima1\\Shaima_test.txt"));
@@ -145,10 +119,38 @@ public class ExecutionClass {// TODO: Is this a looop or class? Also make capita
 	        System.out.println(data);
 	      }
 	         
-	         FileWriter writer = new FileWriter("Shaima_test.txt");
-	     	
-
+	        
+	       //File f1=new File("C:\\Users\\Lenovo\\Desktop\\shaima1\\Shaima_test.txt"); //Creation of File Descriptor for input file
+		      String[] words=null;  //Intialize the word Array
+		      //FileReader fr = new FileReader(f1);  //Creation of File Reader object
+		      BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\Lenovo\\eclipse-workspace\\shaima1\\text.txt")); //Creation of BufferedReader object
+		      String s;  
+		      System.out.println("enter the world you want to search?");
+		      String input=sc.nextLine( );// Input word to be searched
+		      int count=0;   //Intialize the word to zero
+		      while((s=br.readLine())!=null)   //Reading Content from the file
+		      {
+		         words=s.split(" ");  //Split the word using space
+		          for (String word : words) 
+		          {
+		                 if (word.equals(input))   //Search for the given word
+		                 {
+		                   count++;    //If Present increase the count by one
+		                 }
+		          }
+		      }
+		      if(count!=0)  //Check for count not equal to zero
+		      {
+		         System.out.println("The given word is present for "+count+ " Times in the file");
+		      }
+		      else
+		      {
+		         System.out.println("The given word is not present in the file");
+		      }
+               br.close();
+               FileWriter writer = new FileWriter("C:\\Users\\Lenovo\\eclipse-workspace\\shaima1\\text.txt");
 	
+              
 		while (addDepartment) {
 
 			System.out.println("Enter Department Name:");
@@ -349,6 +351,7 @@ public class ExecutionClass {// TODO: Is this a looop or class? Also make capita
 				}
 			} else {
 				System.out.println("Thanks");
+				System.gc();
 
 			}
 	      
@@ -363,7 +366,9 @@ public class ExecutionClass {// TODO: Is this a looop or class? Also make capita
 		writer.close();
 		 myReader.close();
 	}
-		  
+	 protected void finalize(){
+		   System.gc();
+	  }
 } // dep while
 
 //System.out.println(sch.openSchool());
