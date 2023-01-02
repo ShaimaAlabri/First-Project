@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 
-public class student {
+public class student implements InterfaceTest {
 	private String studentName;
 	private int studentId;
 	Course cou=new Course();
@@ -45,6 +45,12 @@ public class student {
 		
 		return map;
 
+	}
+
+	@Override
+	public void studentGender() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

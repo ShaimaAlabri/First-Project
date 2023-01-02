@@ -69,6 +69,7 @@ public class ExecutionClass {// TODO: Is this a looop or class? Also make capita
 				System.out.println("file already exit.");
 			}
 		} catch (IOException e) {
+			
 
 			System.out.println("an erorr occurred.");
 
@@ -368,7 +369,9 @@ public class ExecutionClass {// TODO: Is this a looop or class? Also make capita
 	}
 	 protected void finalize(){
 		   System.gc();
-	  }
+	
+		
+	}
 } // dep while
 
 //System.out.println(sch.openSchool());
