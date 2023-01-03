@@ -47,7 +47,7 @@ public class ExecutionClass {// TODO: Is this a looop or class? Also make capita
 //			System.out.println("5- Course Details");
 //			System.out.println("6- Mark Details");
 //			System.out.println("7- Print Report");
-
+		
 		Scanner sc = new Scanner(System.in);
 		// int input = sc.nextInt();
 		// System.out.println("Enter School Name:");
@@ -60,21 +60,55 @@ public class ExecutionClass {// TODO: Is this a looop or class? Also make capita
 		 * if (open) { System.out.println("School is open"); } else if (open = false) {
 		 * System.out.println("School is close"); }
 		 */
-
+		
+		Course1 cou2=new Course1();
+		
+		
 		try {
-			File myObj = new File("C:\\Users\\Lenovo\\Desktop\\shaima1\\Shaima_test.txt");
-			if (myObj.createNewFile()) {
-				System.out.println("file craeted:" + myObj.getName());
-			} else {
-				System.out.println("file already exit.");
-			}
-		} catch (IOException e) {
+			System.out.println("Enter course Name:");
+			String courseName= sc.nextLine();
+			cou2.setCourseName(courseName);
 			
-
-			System.out.println("an erorr occurred.");
-
-			e.printStackTrace();
+			System.out.println("Enter course ID:");
+			int courseID= sc.nextInt();
+			cou2.setCoursID(courseID);
+			FileOutputStream fi1=new FileOutputStream("Course.txt");
+			ObjectOutputStream out1=new ObjectOutputStream(fi1);
+			out1.writeObject(cou2);
+			fi1.close();
+			out1.close();
+			System.out.println("serilaization is been successfully executed");
+		}catch(Exception e) {
+		 System.out.println(e);
 		}
+	try {
+		FileInputStream fi2=new FileInputStream("Course.txt");
+		ObjectInputStream in=new ObjectInputStream(fi2);
+		System.out.println("Course name :"+ cou2.getCourseName());
+		System.out.println("Course Id:"+ cou2.getCoursID());
+		System.out.println("deserilaization is been successfully executed");
+		in.readObject();
+		fi2.close();
+		in.close();
+		}catch(Exception e) {
+			 System.out.println(e);
+			}
+	
+
+//		try {
+//			File myObj = new File("C:\\Users\\Lenovo\\Desktop\\shaima1\\Shaima_test.txt");
+//			if (myObj.createNewFile()) {
+//				System.out.println("file craeted:" + myObj.getName());
+//			} else {
+//				System.out.println("file already exit.");
+//			}
+//		} catch (IOException e) {
+//			
+//
+//			System.out.println("an erorr occurred.");
+//
+//			e.printStackTrace();
+//		}
 
 //		FileOutputStream f = FileOutputStream(new File("myObject.txt"));
 //			ObjectOutputStream o= ObjectOutputStream (f);
@@ -119,7 +153,7 @@ public class ExecutionClass {// TODO: Is this a looop or class? Also make capita
 	        String data = myReader.nextLine();
 	        System.out.println(data);
 	      }
-	         
+//	         
 	        
 	       //File f1=new File("C:\\Users\\Lenovo\\Desktop\\shaima1\\Shaima_test.txt"); //Creation of File Descriptor for input file
 		      String[] words=null;  //Intialize the word Array
@@ -249,7 +283,9 @@ public class ExecutionClass {// TODO: Is this a looop or class? Also make capita
 				}
 
 			} // course while
-
+		
+			
+			
 			boolean addMarks = true;
 
 			while (addMarks) {
